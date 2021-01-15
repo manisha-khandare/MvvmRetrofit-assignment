@@ -67,6 +67,22 @@
         android:layout_margin="8dp"
         />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/TextViewLikes"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_margin="8dp"
+        android:text="0 Likes"
+        app:layout_constraintTop_toBottomOf="@id/textViewUrl"
+        app:layout_constraintStart_toStartOf="parent"/>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewComments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="0 Comments"
+        app:layout_constraintTop_toBottomOf="@id/textViewUrl"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
