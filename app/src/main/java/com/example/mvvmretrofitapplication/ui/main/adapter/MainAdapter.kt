@@ -37,7 +37,7 @@ class MainAdapter(private val myClas: MyClas) : RecyclerView.Adapter<MainAdapter
                 textViewUserComments.text ="Comments : "+ item.comments.toString()
                 textViewUserName.text =item.user[0].lastname
                 textViewUserEmail.text =item.user[0].designation
-                textViewUrl.text ="URL : "+item.media[0].url
+             //   textViewUrl.text ="URL : "+item.media[0].url!!
                 Glide.with(imageViewArticle.context)
                         .load(item.media[0].image)
                         .into(imageViewArticle)
@@ -53,7 +53,7 @@ class MainAdapter(private val myClas: MyClas) : RecyclerView.Adapter<MainAdapter
     override fun getItemCount(): Int = myClas.size
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
-        holder.bind(myClas[position])
+        holder.bind(myClas[position]!!)
 
 
     }
