@@ -9,7 +9,7 @@ interface ApiService {
 
   /*  @GET("users")
     suspend fun getUsers(): List<User>*/
-    @GET("")
-    suspend fun getMedia(): MyClas
+    @GET("blogs")
+    suspend fun getMyData(): MyClas
 
 }

@@ -13,7 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 //import com.example.mvvmretrofitapplication.R.layout
 import com.example.mvvmretrofitapplication.data.api.ApiHelper
 import com.example.mvvmretrofitapplication.data.api.RetrofitBuilder
-import com.example.mvvmretrofitapplication.data.model.User
+import com.example.mvvmretrofitapplication.data.model.MyClas
+import com.example.mvvmretrofitapplication.databinding.ActivityMainBinding
 import com.example.mvvmretrofitapplication.ui.base.ViewModelFactory
 import com.example.mvvmretrofitapplication.ui.main.adapter.MainAdapter
 import com.example.mvvmretrofitapplication.ui.main.viewmodel.MainViewModel
@@ -31,7 +32,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+     //   setContentView(R.layout.activity_main)
+
+        val activityMainBinding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(activityMainBinding.getRoot())
         setupViewModel()
         setupUI()
         //setupObservers()
@@ -49,7 +53,8 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = MainAdapter(arrayListOf())
+        adapter = MainAdapter(myClas = MyClas())
+
         recyclerView.addItemDecoration(
             DividerItemDecoration(
                 recyclerView.context,
@@ -59,13 +64,14 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
 
-        viewModel.getUsers().observe(this, Observer {
+        viewModel.getMyData().observe(this, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     SUCCESS -> {
                         recyclerView.visibility = View.VISIBLE
                         progressBar.visibility = View.GONE
-                        resource.data?.let { users -> retrieveList(users) }
+                        resource.data?.let { myClass -> retrieveList(myClass) }
+                     //   resource.data?.let { myclassItem -> retrieveList(myclassItem) }
                     }
                     ERROR -> {
                         recyclerView.visibility = View.VISIBLE
@@ -104,9 +110,9 @@ class MainActivity : AppCompatActivity() {
         })
     }*/
 
-    private fun retrieveList(users: List<User>) {
+    private fun retrieveList(myClas: MyClas) {
         adapter.apply {
-            addUsers(users)
+            addData(myClas)
             notifyDataSetChanged()
         }
     }

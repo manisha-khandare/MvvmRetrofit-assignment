@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/container"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="70dp">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageViewAvatar"
@@ -14,6 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+
         tools:ignore="contentDescription" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -26,15 +27,71 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageViewAvatar"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="MindOrks" />
+        tools:text="A" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewUserEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textViewUserName"
+        app:layout_constraintStart_toEndOf="@+id/imageViewAvatar"
         app:layout_constraintTop_toBottomOf="@+id/textViewUserName"
         tools:text="MindOrks" />
+
+    <ImageView
+        android:id="@+id/imageViewArticle"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:src="@color/design_default_color_error"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewUserEmail"
+        tools:ignore="contentDescription" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUrl"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAvatar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ads"
+        app:layout_constraintTop_toBottomOf="@id/textViewContent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/TextViewLikes"
+        android:layout_margin="8dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/TextViewLikes"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_margin="8dp"
+        android:text="0 Likes"
+        app:layout_constraintTop_toBottomOf="@id/textViewUrl"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textViewComments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="0 Comments"
+        app:layout_constraintTop_toBottomOf="@id/textViewUrl"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
